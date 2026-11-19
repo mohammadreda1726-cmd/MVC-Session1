@@ -11,6 +11,20 @@ namespace MVC___Session_1
 
             var app = builder.Build();
 
+            #region Custom Middlwares
+
+            //app.Use(async (context, next) =>
+            //{
+            //    // 1) Step 01
+            //    Console.WriteLine("Hello");
+            //    await next(context);
+            //    Console.WriteLine("Bye");
+            //});
+
+            app.UseMiddleware<RequestTimingMiddlware>();
+
+            #endregion
+
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
